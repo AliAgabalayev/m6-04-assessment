@@ -1,0 +1,23 @@
+# Raw dataset — never commit
+data/
+
+# Downloaded pretrained base weights
+yolo26*.pt
+
+# Run artefacts — large or regeneratable files
+runs/**/weights/last.pt
+runs/**/weights/epoch*.pt
+runs/**/train_batch*.jpg
+runs/**/val_batch*.jpg
+runs/**/test_batch*.jpg
+runs/**/*.cache
+runs/**/predict*/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# IDE
+.idea/
