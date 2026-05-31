@@ -313,3 +313,38 @@ metrics = model.val(data="data.yaml", split="test")
 | mAP@0.5:0.95 | 0.697 |
 | Precision | 0.923 |
 | Recall | 0.867 |
+
+---
+
+## Final Assessment (Unit 6) — Leaderboard Image
+
+```bash
+docker pull aliagabalayev/cat-detector:final
+```
+
+**Image:** `aliagabalayev/cat-detector:final`  
+**Student:** Ali Agabalazade
+
+### Run
+
+```bash
+# Print student info
+docker run --rm aliagabalayev/cat-detector:final info
+
+# Predict (Linux/SELinux: add :z to volume flags)
+docker run --rm \
+  -v /absolute/path/to/images:/data/input:ro \
+  -v /absolute/path/to/results:/data/output \
+  aliagabalayev/cat-detector:final predict
+```
+
+Output: `/data/output/predictions.csv` — `image_path,xmin,ymin,xmax,ymax,confidence,class`
+
+### v2 Model Results
+
+| | Week-1 | v2 (shipped) |
+|---|---|---|
+| Backbone | yolo26s | yolo26s |
+| Epochs | 30 | 70 (10 frozen + 60 unfrozen) |
+| mAP@0.5 | 0.9102 | 0.9217 |
+| mAP@0.5:0.95 | 0.6974 | 0.7068 |
